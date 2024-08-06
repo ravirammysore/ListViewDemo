@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         listViewStates.setOnItemClickListener((parent, view, position, id) -> {
             // Get the clicked item
             var selectedState = (String) parent.getItemAtPosition(position);
-            // Show a toast message with the selected item
+            // Show a toast message with the selected item as a new change
             Toast.makeText(MainActivity.this, "Clicked: " + selectedState, Toast.LENGTH_SHORT).show();
         });
     }
