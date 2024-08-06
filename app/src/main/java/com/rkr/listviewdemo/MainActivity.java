@@ -1,14 +1,19 @@
 package com.rkr.listviewdemo;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView listViewStates;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,5 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the adapter to the ListView
         listViewStates.setAdapter(adapter);
+
+        // Set an item click listener for the ListView
+        listViewStates.setOnItemClickListener((parent, view, position, id) -> {
+            // Get the clicked item
+            var selectedState = (String) parent.getItemAtPosition(position);
+            // Show a toast message with the selected item
+            Toast.makeText(MainActivity.this, "Clicked: " + selectedState, Toast.LENGTH_SHORT).show();
+        });
     }
 }
